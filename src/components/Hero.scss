@@ -1,0 +1,132 @@
+@import '../scss/variables';
+@import '../scss/mixins';
+
+.hero {
+  padding-top: 180px;
+  padding-bottom: 100px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.05);
+    top: -200px;
+    right: -200px;
+    z-index: 0;
+  }
+
+  .slick-slider, .slick-list, .slick-track {
+    height: 100%;
+  }
+
+  .hero-slide {
+    outline: none;
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      min-height: 500px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .slide-content {
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+      color: $dark;
+      margin-bottom: 20px;
+
+      span {
+        color: $primary;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $muted;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    }
+  }
+
+  .slide-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  // Tùy chỉnhdots của slick slider giống hệt Landrick
+:deep(.swiper-pagination) {
+  bottom: 30px !important;
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #cbd5e1;
+    opacity: 1;
+    margin: 0 6px !important;
+    transition: 0.3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $primary;
+    transform: scale(1.4);
+  }
+}
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  // Responsive hoàn toàn khớp theme
+  @media (max-width: 992px) {
+    padding-top: 140px;
+
+    .hero-slide .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 40px;
+    }
+
+    .slide-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .slide-img {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    .slide-content h1 {
+      font-size: 2rem;
+    }
+
+    .slide-content p {
+      font-size: 1rem;
+    }
+  }
+}

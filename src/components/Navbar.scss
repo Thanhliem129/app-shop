@@ -1,0 +1,181 @@
+@import '../scss/variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease;
+  padding: 22px 0;
+  
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+
+    &:hover, &.active {
+      color: $primary;
+    }
+
+    &.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $primary;
+      border-radius: 2px;
+    }
+  }
+
+  &.scrolled {
+    background: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    padding: 14px 0;
+  }
+
+  .navbar-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: $primary;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    transition: 0.3s;
+
+    .nav-link {
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+
+      &:hover, &.active {
+        color: $primary;
+      }
+
+      &.active::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $primary;
+        border-radius: 2px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      height: 100vh;
+      width: 280px;
+      flex-direction: column;
+      background: white;
+      padding: 100px 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      z-index: 9999;
+
+      &.menu-active {
+        left: 0;
+      }
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .action-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+
+      &:hover {
+        background: rgba(37, 99, 235, 0.1);
+        color: $primary;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: $primary;
+        color: white;
+        font-size: 11px;
+        min-width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      @media (max-width: 992px) {
+        display: block;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 380px;
+  height: 100vh;
+  background: white;
+  z-index: 1000;
+  transition: 0.3s;
+  padding: 24px;
+
+  &.open {
+    right: 0;
+  }
+
+  .cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+}

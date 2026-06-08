@@ -1,0 +1,124 @@
+@import '../scss/variables';
+@import '../scss/mixins';
+
+.footer {
+  background: $dark;
+  color: white;
+  padding-top: 100px;
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer-logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .footer-desc {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+
+    svg {
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      transition: $transition;
+      cursor: pointer;
+
+      &:hover {
+        background: $primary;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .footer-links {
+    list-style: none;
+
+    li {
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        color: $primary;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .newsletter-form {
+    display: flex;
+    margin-top: 16px;
+
+    input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+
+    button {
+      background: $primary;
+      border: none;
+      padding: 0 16px;
+      border-radius: 0 8px 8px 0;
+      color: white;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background: darken($primary, 6%);
+      }
+    }
+  }
+
+  .contact-info {
+    margin-top: 24px;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 24px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+}

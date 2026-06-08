@@ -1,0 +1,68 @@
+@import '../scss/variables';
+
+.contact-page {
+  padding: 80px 0;
+
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    margin-top: 30px;
+
+    svg {
+      margin-top: 4px;
+      color: $primary;
+    }
+
+    h4 {
+      margin-bottom: 6px;
+    }
+
+    p {
+      color: $muted;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    input, textarea {
+      padding: 14px 18px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+
+    button {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+  }
+}
